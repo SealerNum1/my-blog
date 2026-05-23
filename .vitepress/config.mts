@@ -3,13 +3,13 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: '运维成长记',
   description: '个人运维技术博客',
+  base: '/my-blog/',          // ← 加这行
   
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
       { text: 'Linux运维', link: '/linux/kernel' }
     ],
-    
     sidebar: {
       '/linux/': [
         {

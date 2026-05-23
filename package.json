@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "watch": "node auto-push.js"
   },
   "keywords": [
     "blog",
@@ -15,6 +16,7 @@
   "author": "春江の雾",
   "license": "MIT",
   "devDependencies": {
+    "chokidar": "^5.0.0",
     "vitepress": "^1.6.4",
     "vitepress-sidebar": "^1.36.1"
   }
