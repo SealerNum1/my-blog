@@ -1,28 +1,24 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Default Theme",
-  description: "A VitePress Site",
+  title: '运维成长记',
+  description: '个人运维技术博客',
+  
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '首页', link: '/' },
+      { text: 'Linux运维', link: '/linux/kernel' }
     ],
-
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    
+    sidebar: {
+      '/linux/': [
+        {
+          text: 'Linux系统',
+          items: [
+            { text: '内核深度知识点', link: '/linux/kernel' }
+          ]
+        }
+      ]
+    }
   }
 })

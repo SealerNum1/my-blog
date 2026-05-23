@@ -2,15 +2,14 @@
 layout: home
 
 hero:
-  name: 我的博客
-  text: 记录运维技术成长
-  tagline: Linux / 监控 / 云原生
+  name: 运维成长记
+  text: Linux 到云原生
+  tagline: 记录技术沉淀与面试复盘
   actions:
     - theme: brand
-      text: 开始阅读
+      text: Linux内核调优
       link: /linux/kernel
+    - theme: alt
+      text: GitHub
+      link: https://github.com/SealerNum1/my-blog
 ---
-
-# 欢迎来到我的博客
-
-这里记录我的运维学习笔记。

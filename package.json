@@ -7,10 +7,15 @@
     "build": "vitepress build docs",
     "preview": "vitepress preview docs"
   },
-  "keywords": ["blog", "vitepress", "运维"],
+  "keywords": [
+    "blog",
+    "vitepress",
+    "运维"
+  ],
   "author": "春江の雾",
   "license": "MIT",
   "devDependencies": {
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "vitepress-sidebar": "^1.36.1"
   }
 }
