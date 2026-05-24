@@ -3,6 +3,7 @@ const fs = require('fs')
 
 let timer = null
 let hasChange = false
+let changedFile = ''  // 记录变动的文件
 
 function autoCommit() {
   if (!hasChange) return
@@ -15,19 +16,24 @@ function autoCommit() {
     execSync('git add .')
     execSync('git commit -m "auto: 更新 ' + new Date().toLocaleString() + '"')
     execSync('git push origin main')
+    
+    // 打印 GitHub 链接
+    const githubUrl = `https://github.com/SealerNum1/my-blog/blob/main/docs/${changedFile.replace(/\\/g, '/')}`
     console.log('✅ 自动推送成功', new Date().toLocaleTimeString())
+    console.log('🔗 GitHub链接:', githubUrl)
+    
     hasChange = false
+    changedFile = ''
   } catch (e) {
     console.log('❌ 推送失败:', e.message)
   }
 }
 
-// 递归监控 docs 目录
 function watchDir(dir) {
   fs.watch(dir, { recursive: true }, (eventType, filename) => {
-    // 支持 .md 和 .pdf 文件
     if (filename && (filename.endsWith('.md') || filename.endsWith('.pdf'))) {
       console.log(`📝 文件变动: ${filename}`)
+      changedFile = filename  // 记录文件名
       hasChange = true
       clearTimeout(timer)
       timer = setTimeout(autoCommit, 5000)
@@ -37,7 +43,6 @@ function watchDir(dir) {
 
 watchDir('docs')
 
-// 兜底定时提交（30分钟）
 setInterval(() => {
   if (hasChange) {
     console.log('⏰ 定时兜底提交触发')
